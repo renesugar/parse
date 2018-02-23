@@ -79,53 +79,9 @@ func IsWhitespace(c byte) bool {
 	return whitespaceTable[c]
 }
 
-var newlineTable = [256]bool{
-	// ASCII
-	false, false, false, false, false, false, false, false,
-	false, false, true, false, false, true, false, false, // new line, carriage return
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	// non-ASCII
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-	false, false, false, false, false, false, false, false,
-}
-
 // IsNewline returns true for \n, \r.
 func IsNewline(c byte) bool {
-	return newlineTable[c]
+	return c == '\n' || c == '\r'
 }
 
 // IsAllWhitespace returns true when the entire byte slice consists of space, \n, \r, \t, \f.
